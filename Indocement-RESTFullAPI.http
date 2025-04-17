@@ -1,0 +1,6 @@
+@Indocement_RESTFullAPI_HostAddress = http://localhost:5029
+
+GET {{Indocement_RESTFullAPI_HostAddress}}/api/Employees
+Accept: application/json
+
+###
