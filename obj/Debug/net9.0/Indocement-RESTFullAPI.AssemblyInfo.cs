@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Indocement-RESTFullAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b50e1d0500610cd4ab30d549d9fc4941d474295c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f751003d28822de4f46f4df6ed0b418463a3817")]
 [assembly: System.Reflection.AssemblyProductAttribute("Indocement-RESTFullAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Indocement-RESTFullAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

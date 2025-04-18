@@ -825,3 +825,7 @@ C:/Users/SMKNE/OneDrive/Desktop/Indocement-RESTFullAPI/Indocement-RESTFullAPI/bi
 /home/ubuntu/idcmt/obj/Debug/net9.0/ref/Indocement-RESTFullAPI.dll
 /home/ubuntu/idcmt/bin/Debug/net9.0/Castle.Core.dll
 /home/ubuntu/idcmt/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Proxies.dll
+/home/ubuntu/idcmt/bin/Debug/net9.0/Indocement-RESTFullAPI.staticwebassets.runtime.json
+/home/ubuntu/idcmt/bin/Debug/net9.0/Scrutor.dll
+/home/ubuntu/idcmt/bin/Debug/net9.0/Swashbuckle.AspNetCore.Filters.dll
+/home/ubuntu/idcmt/bin/Debug/net9.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll

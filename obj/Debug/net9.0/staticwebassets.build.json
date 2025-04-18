@@ -1,12 +1,20 @@
 {
   "Version": 1,
-  "Hash": "Ly77ShuShSxsTbzVBjmX0+5tbZcfuUDoYrK4t9gUDP4=",
+  "Hash": "/BApiMZkPYeyjdAqjFS5vimCpCYcZl2voYCd1QBhrd8=",
   "Source": "Indocement-RESTFullAPI",
   "BasePath": "_content/Indocement-RESTFullAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Indocement-RESTFullAPI/wwwroot",
+      "Source": "Indocement-RESTFullAPI",
+      "ContentRoot": "/home/ubuntu/idcmt/wwwroot/",
+      "BasePath": "_content/Indocement-RESTFullAPI",
+      "Pattern": "**"
+    }
+  ],
   "Assets": [],
   "Endpoints": []
 }
