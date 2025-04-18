@@ -128,7 +128,7 @@ public partial class IndocementDbContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=SMKN1CBN-6\\MSSQLSERVER01;Database=indocement;Trusted_Connection=True;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Server=localhost;Database=IndocementDB;User Id=sa;Password=Indcmt_190;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

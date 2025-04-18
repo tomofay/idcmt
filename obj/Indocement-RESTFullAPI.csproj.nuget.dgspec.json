@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SMKNE\\OneDrive\\Desktop\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI.csproj": {}
+    "/home/ubuntu/idcmt/Indocement-RESTFullAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SMKNE\\OneDrive\\Desktop\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI.csproj": {
+    "/home/ubuntu/idcmt/Indocement-RESTFullAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SMKNE\\OneDrive\\Desktop\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI.csproj",
+        "projectUniqueName": "/home/ubuntu/idcmt/Indocement-RESTFullAPI.csproj",
         "projectName": "Indocement-RESTFullAPI",
-        "projectPath": "C:\\Users\\SMKNE\\OneDrive\\Desktop\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI.csproj",
-        "packagesPath": "C:\\Users\\SMKNE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SMKNE\\OneDrive\\Desktop\\Indocement-RESTFullAPI\\Indocement-RESTFullAPI\\obj\\",
+        "projectPath": "/home/ubuntu/idcmt/Indocement-RESTFullAPI.csproj",
+        "packagesPath": "/home/ubuntu/.nuget/packages/",
+        "outputPath": "/home/ubuntu/idcmt/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\SMKNE\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/ubuntu/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +39,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -58,6 +52,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -97,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

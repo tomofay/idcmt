@@ -93,6 +93,7 @@ namespace Indocement_RESTFullAPI.Controllers
             return Ok(new
             {
                 user.Id,
+                user.IdEmployee, // Tambahkan id_employee di sini
                 user.Email,
                 user.Role,
                 EmployeeName = user.IdEmployeeNavigation?.EmployeeName ?? "Unknown", // Default ke "Unknown" jika null
@@ -106,11 +107,13 @@ namespace Indocement_RESTFullAPI.Controllers
         public async Task<IActionResult> GetUserById(decimal id)
         {
             var user = await _context.Users
-                .Include(u => u.IdEmployeeNavigation)
+                .Include(u => u.IdEmployeeNavigation) // Memuat relasi Employee
                 .FirstOrDefaultAsync(u => u.Id == id);
 
             if (user == null)
+            {
                 return NotFound("User not found.");
+            }
 
             return Ok(new
             {
@@ -124,7 +127,7 @@ namespace Indocement_RESTFullAPI.Controllers
                     user.IdEmployeeNavigation.Id,
                     user.IdEmployeeNavigation.EmployeeName,
                     user.IdEmployeeNavigation.Telepon,
-                    user.IdEmployeeNavigation.LivingArea, // Menggunakan LivingArea sebagai alamat
+                    user.IdEmployeeNavigation.LivingArea,
                     user.IdEmployeeNavigation.JobTitle,
                     user.IdEmployeeNavigation.Gender,
                     user.IdEmployeeNavigation.CreatedAt,
@@ -181,10 +184,23 @@ namespace Indocement_RESTFullAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(decimal id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if (user == null)
-                return NotFound("User not found.");
+            // Cari user beserta relasi Employee
+            var user = await _context.Users
+                .Include(u => u.IdEmployeeNavigation) // Memuat relasi Employee
+                .FirstOrDefaultAsync(u => u.Id == id);
 
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Hapus data Employee jika ada
+            if (user.IdEmployeeNavigation != null)
+            {
+                _context.Employees.Remove(user.IdEmployeeNavigation);
+            }
+
+            // Hapus data User
             _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 

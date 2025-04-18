@@ -22,23 +22,79 @@ namespace Indocement_RESTFullAPI.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
+        public async Task<ActionResult<IEnumerable<object>>> GetEmployees()
         {
-            return await _context.Employees.ToListAsync();
+            var employees = await _context.Employees
+                .Include(e => e.Users) // Memuat relasi Users
+                .ToListAsync();
+
+            return Ok(employees.Select(employee => new
+            {
+                employee.Id,
+                employee.EmployeeNo,
+                employee.EmployeeName,
+                employee.JobTitle,
+                employee.ServiceDate,
+                employee.BirthDate,
+                employee.NoBpjs,
+                employee.Gender,
+                employee.Telepon,
+                employee.LivingArea,
+                employee.Email,
+                employee.Education,
+                employee.WorkLocation,
+                employee.CreatedAt,
+                employee.UpdatedAt,
+                Users = employee.Users.Select(u => new
+                {
+                    u.Id,
+                    u.Email,
+                    u.Role,
+                    u.CreatedAt,
+                    u.UpdatedAt
+                })
+            }));
         }
 
         // GET: api/Employees/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> GetEmployee(decimal id)
         {
-            var employee = await _context.Employees.FindAsync(id);
+            var employee = await _context.Employees
+                .Include(e => e.Users) // Memuat relasi Users
+                .FirstOrDefaultAsync(e => e.Id == id);
 
             if (employee == null)
             {
                 return NotFound();
             }
 
-            return employee;
+            return Ok(new
+            {
+                employee.Id,
+                employee.EmployeeNo,
+                employee.EmployeeName,
+                employee.JobTitle,
+                employee.ServiceDate,
+                employee.BirthDate,
+                employee.NoBpjs,
+                employee.Gender,
+                employee.Telepon,
+                employee.LivingArea,
+                employee.Email,
+                employee.Education,
+                employee.WorkLocation,
+                employee.CreatedAt,
+                employee.UpdatedAt,
+                Users = employee.Users.Select(u => new
+                {
+                    u.Id,
+                    u.Email,
+                    u.Role,
+                    u.CreatedAt,
+                    u.UpdatedAt
+                })
+            });
         }
 
         // PUT: api/Employees/5
