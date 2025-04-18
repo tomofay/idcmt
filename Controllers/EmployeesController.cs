@@ -22,38 +22,11 @@ namespace Indocement_RESTFullAPI.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<object>>> GetEmployees()
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
         {
-            var employees = await _context.Employees
+            return await _context.Employees
                 .Include(e => e.Users) // Memuat relasi Users
                 .ToListAsync();
-
-            return Ok(employees.Select(employee => new
-            {
-                employee.Id,
-                employee.EmployeeNo,
-                employee.EmployeeName,
-                employee.JobTitle,
-                employee.ServiceDate,
-                employee.BirthDate,
-                employee.NoBpjs,
-                employee.Gender,
-                employee.Telepon,
-                employee.LivingArea,
-                employee.Email,
-                employee.Education,
-                employee.WorkLocation,
-                employee.CreatedAt,
-                employee.UpdatedAt,
-                Users = employee.Users.Select(u => new
-                {
-                    u.Id,
-                    u.Email,
-                    u.Role,
-                    u.CreatedAt,
-                    u.UpdatedAt
-                })
-            }));
         }
 
         // GET: api/Employees/5
@@ -69,32 +42,7 @@ namespace Indocement_RESTFullAPI.Controllers
                 return NotFound();
             }
 
-            return Ok(new
-            {
-                employee.Id,
-                employee.EmployeeNo,
-                employee.EmployeeName,
-                employee.JobTitle,
-                employee.ServiceDate,
-                employee.BirthDate,
-                employee.NoBpjs,
-                employee.Gender,
-                employee.Telepon,
-                employee.LivingArea,
-                employee.Email,
-                employee.Education,
-                employee.WorkLocation,
-                employee.CreatedAt,
-                employee.UpdatedAt,
-                Users = employee.Users.Select(u => new
-                {
-                    u.Id,
-                    u.Email,
-                    u.Role,
-                    u.CreatedAt,
-                    u.UpdatedAt
-                })
-            });
+            return employee;
         }
 
         // PUT: api/Employees/5

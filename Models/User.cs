@@ -34,7 +34,7 @@ public partial class User
 
     [Column("role")]
     [StringLength(8)]
-    public string Role { get; set; } = "Employee";  // Default role, bisa disesuaikan
+    public string JobTitle { get; set; } = "Employee";  // Default job title
 
     [Column("created_at", TypeName = "datetime")]
     public DateTime? CreatedAt { get; set; } = DateTime.Now;

@@ -24,14 +24,18 @@ namespace Indocement_RESTFullAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bpjs>>> GetBpjs()
         {
-            return await _context.Bpjs.ToListAsync();
+            return await _context.Bpjs
+                .Include(b => b.IdEmployeeNavigation) // Memuat properti navigasi
+                .ToListAsync();
         }
 
         // GET: api/Bpjs/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Bpjs>> GetBpjs(decimal id)
         {
-            var bpjs = await _context.Bpjs.FindAsync(id);
+            var bpjs = await _context.Bpjs
+                .Include(b => b.IdEmployeeNavigation) // Memuat properti navigasi
+                .FirstOrDefaultAsync(b => b.Id == id);
 
             if (bpjs == null)
             {
@@ -77,6 +81,21 @@ namespace Indocement_RESTFullAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Bpjs>> PostBpjs(Bpjs bpjs)
         {
+            if (!_context.Employees.Any(e => e.Id == bpjs.IdEmployee))
+            {
+                return BadRequest(new { message = "Invalid IdEmployee." });
+            }
+
+            // Muat data Employee berdasarkan IdEmployee
+            var employee = await _context.Employees.FindAsync(bpjs.IdEmployee);
+            if (employee == null)
+            {
+                return BadRequest(new { message = "Employee not found." });
+            }
+
+            // Isi properti navigasi
+            bpjs.IdEmployeeNavigation = employee;
+
             _context.Bpjs.Add(bpjs);
             await _context.SaveChangesAsync();
 

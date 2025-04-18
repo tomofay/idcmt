@@ -59,7 +59,7 @@ namespace Indocement_RESTFullAPI.Controllers
             {
                 Email = userRegisterDTO.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(userRegisterDTO.Password),
-                Role = "Employee", // default role
+                JobTitle = "Employee", // Default job title
                 IdEmployee = employee.Id, // Menyambungkan employee dengan user
                 CreatedAt = DateTime.Now
             };
@@ -71,7 +71,7 @@ namespace Indocement_RESTFullAPI.Controllers
             {
                 user.Id,
                 user.Email,
-                user.Role
+                user.JobTitle,
             });
         }
 
@@ -95,7 +95,7 @@ namespace Indocement_RESTFullAPI.Controllers
                 user.Id,
                 user.IdEmployee, // Tambahkan id_employee di sini
                 user.Email,
-                user.Role,
+                user.JobTitle,
                 EmployeeName = user.IdEmployeeNavigation?.EmployeeName ?? "Unknown", // Default ke "Unknown" jika null
                 Telepon = user.IdEmployeeNavigation?.Telepon ?? "Unknown" // Default ke "Unknown" jika null
             });
@@ -119,7 +119,7 @@ namespace Indocement_RESTFullAPI.Controllers
             {
                 user.Id,
                 user.Email,
-                user.Role,
+                user.JobTitle,
                 user.CreatedAt,
                 user.UpdatedAt,
                 Employee = user.IdEmployeeNavigation == null ? null : new
@@ -171,7 +171,7 @@ namespace Indocement_RESTFullAPI.Controllers
             {
                 user.Id,
                 user.Email,
-                user.Role,
+                user.JobTitle,
                 EmployeeName = user.IdEmployeeNavigation?.EmployeeName,
                 Telepon = user.IdEmployeeNavigation?.Telepon,
                 LivingArea = user.IdEmployeeNavigation?.LivingArea // Menambahkan LivingArea dalam response

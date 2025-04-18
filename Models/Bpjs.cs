@@ -53,5 +53,5 @@ public partial class Bpjs
 
     [ForeignKey("IdEmployee")]
     [InverseProperty("Bpjs")]
-    public virtual Employee IdEmployeeNavigation { get; set; } = null!;
+    public virtual Employee? IdEmployeeNavigation { get; set; } // Jadikan nullable
 }
